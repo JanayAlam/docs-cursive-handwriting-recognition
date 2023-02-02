@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image {
+    height: 500px;
+}
+
+.imgPreview {
+    width: 550px;
+    height: 150px;
+    margin-left: 10px;
+}

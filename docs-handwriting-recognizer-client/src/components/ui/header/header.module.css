@@ -1,0 +1,7 @@
+.navbar {
+    background-color: var(--light-color) !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid rgb(238, 238, 238);
+    color: var(--dark-color) !important;
+}
+

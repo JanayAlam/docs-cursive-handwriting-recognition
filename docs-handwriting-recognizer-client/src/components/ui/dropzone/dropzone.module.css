@@ -1,0 +1,16 @@
+.dropZoneContainer {
+    background: var(--secondary-color);
+    min-height: 250px;
+    text-align: center;
+    padding: 15px;
+    border: 1px dashed var(--dark-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    font-size: 100px !important;
+    color: var(--dark-color);
+}
