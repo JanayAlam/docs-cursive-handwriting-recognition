@@ -35,8 +35,7 @@ ButtonComponent.propTypes = {
     variant: PropTypes.string,
     size: PropTypes.string,
     styles: PropTypes.object,
-    onClickHandler: PropTypes.func.isRequired,
-    label: PropTypes.string.isRequired,
+    onClickHandler: PropTypes.func.isRequired
 };
 
 export default ButtonComponent;

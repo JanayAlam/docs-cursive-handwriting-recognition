@@ -2,6 +2,7 @@ import { Button, Container, Grid } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import BasePhotoHolder from '../../components/base-photo-holder';
+import CroppedImageStack from '../../components/cropped-image-stack';
 import ErrorComponent from '../../components/error';
 import { selectBasePhoto } from '../../store/reducers/photos-slice';
 
@@ -14,30 +15,11 @@ const ImageContainer = () => {
             {basePhoto ? (
                 <Container maxWidth="xl">
                     <Grid container sx={{ marginTop: '1rem' }}>
-                        <Grid xl={8} md={8} sm={12} xs={12}>
+                        <Grid item xl={8} md={8} sm={12} xs={12}>
                             <BasePhotoHolder basePhoto={basePhoto} />
                         </Grid>
-                        <Grid xl={4} md={4} sm={12} xs={12}>
-                            <img
-                                src={basePhoto}
-                                alt="Selected prescription"
-                                style={{ width: '350px', height: '150px' }}
-                            />
-                            <img
-                                src={basePhoto}
-                                alt="Selected prescription"
-                                style={{ width: '350px', height: '150px' }}
-                            />
-                            <img
-                                src={basePhoto}
-                                alt="Selected prescription"
-                                style={{ width: '350px', height: '150px' }}
-                            />
-                            <img
-                                src={basePhoto}
-                                alt="Selected prescription"
-                                style={{ width: '350px', height: '150px' }}
-                            />
+                        <Grid item xl={4} md={4} sm={12} xs={12}>
+                            <CroppedImageStack basePhoto={basePhoto} />
                         </Grid>
                     </Grid>
                 </Container>
