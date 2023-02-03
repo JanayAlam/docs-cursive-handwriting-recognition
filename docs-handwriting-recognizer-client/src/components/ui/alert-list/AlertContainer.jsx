@@ -1,7 +1,7 @@
 import { Alert } from '@mui/material';
 import PropTypes from 'prop-types';
 
-const AlertContainer = ({ id, alertText, category, clearNotification }) => {
+const AlertContainer = ({ id, text, category, clearNotification }) => {
     return (
         <div
             style={{
@@ -11,14 +11,14 @@ const AlertContainer = ({ id, alertText, category, clearNotification }) => {
             onClick={() => clearNotification(id)}
         >
             <Alert severity={category} color={category}>
-                {alertText}
+                {text}
             </Alert>
         </div>
     );
 };
 
 AlertContainer.propTypes = {
-    alertText: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
 };
 

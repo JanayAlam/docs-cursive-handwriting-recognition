@@ -1,11 +1,9 @@
-import { Button } from '@mui/material';
+import { Button, Container, Grid } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import BasePhotoHolder from '../../components/base-photo-holder';
 import ErrorComponent from '../../components/error';
-import {
-    removeBasePhoto,
-    selectBasePhoto
-} from '../../store/reducers/photos-slice';
+import { selectBasePhoto } from '../../store/reducers/photos-slice';
 
 const ImageContainer = () => {
     const dispatch = useDispatch();
@@ -14,12 +12,35 @@ const ImageContainer = () => {
     return (
         <>
             {basePhoto ? (
-                <div>
-                    <img src={basePhoto} height="150px" />
-                    <button onClick={() => dispatch(removeBasePhoto())}>
-                        Clear
-                    </button>
-                </div>
+                <Container maxWidth="xl">
+                    <Grid container sx={{ marginTop: '1rem' }}>
+                        <Grid xl={8} md={8} sm={12} xs={12}>
+                            <BasePhotoHolder basePhoto={basePhoto} />
+                        </Grid>
+                        <Grid xl={4} md={4} sm={12} xs={12}>
+                            <img
+                                src={basePhoto}
+                                alt="Selected prescription"
+                                style={{ width: '350px', height: '150px' }}
+                            />
+                            <img
+                                src={basePhoto}
+                                alt="Selected prescription"
+                                style={{ width: '350px', height: '150px' }}
+                            />
+                            <img
+                                src={basePhoto}
+                                alt="Selected prescription"
+                                style={{ width: '350px', height: '150px' }}
+                            />
+                            <img
+                                src={basePhoto}
+                                alt="Selected prescription"
+                                style={{ width: '350px', height: '150px' }}
+                            />
+                        </Grid>
+                    </Grid>
+                </Container>
             ) : (
                 <ErrorComponent statusCode={400}>
                     <p style={{ marginBottom: '1rem' }}>
