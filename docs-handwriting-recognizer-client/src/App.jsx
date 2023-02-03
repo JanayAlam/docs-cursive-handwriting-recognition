@@ -8,6 +8,8 @@ import Homepage from './pages/home/Homepage';
 import ImageContainer from './pages/prediction/ImageContainer';
 
 import { Provider } from 'react-redux';
+import styles from './app.module.css';
+import AlertList from './components/ui/alert-list';
 import store from './store';
 
 function App() {
@@ -25,6 +27,9 @@ function App() {
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
                 </Routes>
+                <div className={styles.alertList}>
+                    <AlertList />
+                </div>
             </div>
         </Provider>
     );
