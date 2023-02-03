@@ -20,7 +20,11 @@ const uiSlice = createSlice({
             return state;
         },
         popNotification(state = initialState, action) {
-            delete state.notifications[action.payload];
+            try {
+                delete state.notifications[action.payload];
+            } catch (e) {
+                console.warn(e.message);
+            }
             return state;
         },
     },

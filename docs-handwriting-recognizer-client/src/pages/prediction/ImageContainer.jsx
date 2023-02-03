@@ -1,5 +1,5 @@
 import { Button, Container, Grid } from '@mui/material';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import BasePhotoHolder from '../../components/base-photo-holder';
 import CroppedImageStack from '../../components/cropped-image-stack';
@@ -7,7 +7,6 @@ import ErrorComponent from '../../components/error';
 import { selectBasePhoto } from '../../store/reducers/photos-slice';
 
 const ImageContainer = () => {
-    const dispatch = useDispatch();
     const basePhoto = useSelector(selectBasePhoto);
 
     return (
