@@ -10,6 +10,14 @@ body {
     font-family: 'Poppins', 'Roboto', sans-serif;
 }
 
+.mr-05 {
+    margin-right: 0.5rem;
+}
+
+.ml-05 {
+    margin-left: 0.5rem;
+}
+
 :root {
     --light-color: #fff;
     --dark-color: #333;

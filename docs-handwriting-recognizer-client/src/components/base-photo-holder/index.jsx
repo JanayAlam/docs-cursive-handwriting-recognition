@@ -1,4 +1,6 @@
-import { Container, Divider } from '@mui/material';
+import ClearIcon from '@mui/icons-material/Clear';
+import CropIcon from '@mui/icons-material/Crop';
+import { Container } from '@mui/material';
 import PropTypes from 'prop-types';
 import ButtonComponent from '../ui/button';
 import styles from './base-photo-holder.module.css';
@@ -12,17 +14,16 @@ const BasePhotoHolder = ({ basePhoto }) => {
                     onClickHandler={() => {}}
                     size="small"
                 >
-                    Crop Image
+                    <CropIcon fontSize='small' className='mr-05' /> Crop Image
                 </ButtonComponent>
                 <ButtonComponent
                     category="error"
                     onClickHandler={() => {}}
                     size="small"
                 >
-                    Clear Image
+                    <ClearIcon fontSize='small' className='mr-05' /> Clear Image
                 </ButtonComponent>
             </div>
-            <Divider className={styles.divider} />
             <div style={{ textAlign: 'center' }}>
                 <img
                     src={basePhoto}

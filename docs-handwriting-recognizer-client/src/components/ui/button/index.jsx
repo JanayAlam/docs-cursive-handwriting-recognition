@@ -8,11 +8,13 @@ const ButtonComponent = ({
     onClickHandler,
     children,
     size,
+    disabled,
     styles: customStyles,
 }) => {
     if (!category) category = 'primary';
     if (!variant) variant = 'text';
     if (!size) size = 'medium';
+    if (!disabled) disabled = false;
 
     return (
         <Button
@@ -20,10 +22,11 @@ const ButtonComponent = ({
             color={category}
             variant={variant}
             size={size}
-            className={styles.button}
+            disabled={disabled}
             sx={{
                 ...customStyles,
             }}
+            className={styles.button}
         >
             {children}
         </Button>
@@ -35,7 +38,8 @@ ButtonComponent.propTypes = {
     variant: PropTypes.string,
     size: PropTypes.string,
     styles: PropTypes.object,
-    onClickHandler: PropTypes.func.isRequired
+    disabled: PropTypes.bool,
+    onClickHandler: PropTypes.func.isRequired,
 };
 
 export default ButtonComponent;
