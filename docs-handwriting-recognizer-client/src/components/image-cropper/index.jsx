@@ -1,13 +1,39 @@
 import DoneIcon from '@mui/icons-material/Done';
 import { Grid } from '@mui/material';
 import Cropper from 'cropperjs';
+import PropTypes from 'prop-types';
 import { useEffect, useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addCroppedPhoto } from '../../store/reducers/photos-slice';
+import { pushNotification } from '../../store/reducers/ui-slice';
 import ButtonComponent from '../ui/button';
 import styles from './image-cropper.module.css';
 
-const ImageCropper = ({ image }) => {
+const ImageCropper = ({ image, handleModalClose }) => {
+    const dispatch = useDispatch();
+
     const [imgDestination, setImgDestination] = useState(null);
     const imageEl = useRef();
+
+    const insertCroppedImage = () => {
+        if (!imgDestination) {
+            dispatch(
+                pushNotification({
+                    text: 'Cropped image not found',
+                    category: 'error',
+                })
+            );
+            return;
+        }
+        dispatch(addCroppedPhoto(imgDestination));
+        handleModalClose();
+        dispatch(
+            pushNotification({
+                text: 'Image added',
+                category: 'success',
+            })
+        );
+    };
 
     useEffect(() => {
         const cropper = new Cropper(imageEl.current, {
@@ -42,14 +68,14 @@ const ImageCropper = ({ image }) => {
                             />
                             <ButtonComponent
                                 variant="contained"
-                                onClickHandler={() => {}}
+                                onClickHandler={insertCroppedImage}
                                 size="small"
                                 styles={{
                                     width: '100%',
                                 }}
                             >
-                                <DoneIcon fontSize="small" />{' '}
-                                <span style={{ marginLeft: '5px' }}>Done</span>
+                                <DoneIcon fontSize="small" className="mr-05" />
+                                Done
                             </ButtonComponent>
                         </div>
                     )}
@@ -57,6 +83,11 @@ const ImageCropper = ({ image }) => {
             </Grid>
         </div>
     );
+};
+
+ImageCropper.propTypes = {
+    image: PropTypes.any.isRequired,
+    handleModalClose: PropTypes.func.isRequired,
 };
 
 export default ImageCropper;

@@ -18,7 +18,7 @@ const ImageContainer = () => {
                             <BasePhotoHolder basePhoto={basePhoto} />
                         </Grid>
                         <Grid item xl={4} md={4} sm={12} xs={12}>
-                            <CroppedImageStack basePhoto={basePhoto} />
+                            <CroppedImageStack />
                         </Grid>
                     </Grid>
                 </Container>

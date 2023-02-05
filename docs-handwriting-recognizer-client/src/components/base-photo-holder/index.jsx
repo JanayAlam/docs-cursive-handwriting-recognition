@@ -7,15 +7,22 @@ import {
     Divider,
     IconButton,
     Modal,
-    Tooltip
+    Tooltip,
 } from '@mui/material';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { removeBasePhoto } from '../../store/reducers/photos-slice';
+import { pushNotification } from '../../store/reducers/ui-slice';
 import ImageCropper from '../image-cropper';
 import ButtonComponent from '../ui/button';
 import styles from './base-photo-holder.module.css';
 
 const BasePhotoHolder = ({ basePhoto }) => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const [onCropModal, setOnCropModal] = useState(false);
 
     const handleOnCropModalOpen = () => {
@@ -24,6 +31,17 @@ const BasePhotoHolder = ({ basePhoto }) => {
 
     const handleOnCropModalClose = () => {
         setOnCropModal(false);
+    };
+
+    const clearBaseImage = () => {
+        dispatch(removeBasePhoto());
+        navigate('/');
+        dispatch(
+            pushNotification({
+                text: 'The prescription has been removed',
+                category: 'info',
+            })
+        );
     };
 
     return (
@@ -38,7 +56,7 @@ const BasePhotoHolder = ({ basePhoto }) => {
                 </ButtonComponent>
                 <ButtonComponent
                     category="error"
-                    onClickHandler={() => {}}
+                    onClickHandler={clearBaseImage}
                     size="small"
                 >
                     <ClearIcon fontSize="small" className="mr-05" /> Clear Image
@@ -70,7 +88,10 @@ const BasePhotoHolder = ({ basePhoto }) => {
                         </Tooltip>
                     </div>
                     <Divider sx={{ marginBottom: 1 }} />
-                    <ImageCropper image={basePhoto} />
+                    <ImageCropper
+                        image={basePhoto}
+                        handleModalClose={handleOnCropModalClose}
+                    />
                 </Box>
             </Modal>
         </Container>
