@@ -6,10 +6,24 @@
 
 .image {
     height: 500px;
+    width: 100%;
 }
 
-.imgPreview {
-    width: 550px;
-    height: 150px;
-    margin-left: 10px;
+.previewHolder {
+    margin-top: 1rem;
+}
+
+.previewTitle {
+    font-weight: bold;
+}
+
+.helperTextHolder {
+    list-style: none;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+}
+
+.previewImage {
+    width: 100%;
 }
