@@ -1,7 +1,9 @@
 import DeleteIcon from '@mui/icons-material/Delete';
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 import { Container, Stack, Typography } from '@mui/material';
+import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
+import dataURLtoFile from '../../assets/utils';
 import {
     removeCroppedPhoto,
     selectCroppedPhotos
@@ -24,12 +26,23 @@ const CroppedImageStack = () => {
         );
     };
 
+    const onSubmitHandler = async () => {        
+        const data = new FormData();
+
+        for (let i=0; i<croppedPhotos.length; i++) {
+            data.append(`file-${i+1}`, dataURLtoFile(croppedPhotos[i].photo, croppedPhotos[i].id)) 
+        }
+
+        const res = await axios.post('http://localhost:8080/api/predict', data);
+        console.log(res.data);
+    };
+
     return (
         <Container maxWidth="xl">
             <div className={styles.buttonContainer}>
                 <ButtonComponent
                     category="primary"
-                    onClickHandler={() => {}}
+                    onClickHandler={onSubmitHandler}
                     size="small"
                     styles={{
                         width: '100%',

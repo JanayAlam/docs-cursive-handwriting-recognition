@@ -39,7 +39,8 @@ const ImageCropper = ({ image, handleModalClose }) => {
         const cropper = new Cropper(imageEl.current, {
             zoomable: true,
             scalable: true,
-            aspectRatio: 550 / 150,
+            rotatable: true,
+            aspectRatio: 256 / 72,
             crop: () => {
                 const canvas = cropper.getCroppedCanvas();
                 setImgDestination(canvas.toDataURL('image/png'));
