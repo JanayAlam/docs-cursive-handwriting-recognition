@@ -5,15 +5,15 @@ import {
     IconButton,
     Menu,
     MenuItem,
-    Toolbar,
-    Typography
+    Toolbar
 } from '@mui/material';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import brandImage from '../../../assets/prescription.png';
 import styles from './header.module.css';
 import LoginLogoutBtn from './LoginLogoutBtn';
 
-const Header = (props) => {
+const Header = () => {
     const [auth, setAuth] = useState(false);
     const [anchorEl, setAnchorEl] = useState(null);
     const navigate = useNavigate();
@@ -31,14 +31,13 @@ const Header = (props) => {
         <AppBar position="sticky" className={styles.navbar}>
             <Container maxWidth="xl">
                 <Toolbar>
-                    <Typography
-                        variant="h6"
-                        component="div"
-                        sx={{ flexGrow: 1, cursor: 'pointer' }}
+                    <div
+                        className={styles.brandItems}
                         onClick={() => navigate('/')}
                     >
-                        PrescribeEasy
-                    </Typography>
+                        <img src={brandImage} height="35px" />
+                        <div className={styles.brandName}>RXDetection</div>
+                    </div>
                     {auth ? (
                         <div>
                             <IconButton

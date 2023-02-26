@@ -5,3 +5,17 @@
     color: var(--dark-color) !important;
 }
 
+.brandItems {
+    font-size: 1.5rem;
+    display: flex;
+    flex-grow: 1;
+    cursor: pointer;
+    align-items: center;
+}
+
+.brandName {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 0.5rem;
+    font-weight: bold;
+    color: var(--dark-color);
+}

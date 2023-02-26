@@ -17,11 +17,11 @@ def prediction():
             'arr': np.array(Image.open(request.files[r_img]).convert("L").resize((256, 72)))
         })
 
-    for i in range(1, 4):
-        plt.subplot(1, 3, i)
-        plt.imshow(photos[i-1]['arr'], cmap='gray')
-        plt.axis('off')
-    plt.show()
+    # for i in range(1, len(photos)+1):
+    #     plt.subplot(1, len(photos), i)
+    #     plt.imshow(photos[i-1]['arr'], cmap='gray')
+    #     plt.axis('off')
+    # plt.show()
 
     return jsonify([
         {

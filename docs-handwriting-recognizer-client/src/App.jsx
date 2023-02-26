@@ -10,6 +10,7 @@ import ImageContainer from './pages/prediction/ImageContainer';
 import { Provider } from 'react-redux';
 import styles from './app.module.css';
 import AlertList from './components/ui/alert-list';
+import PredictionResults from './pages/prediction/PredictionResults';
 import store from './store';
 
 function App() {
@@ -22,6 +23,10 @@ function App() {
                     <Route
                         path="/image-cropping"
                         element={<ImageContainer />}
+                    />
+                    <Route
+                        path="/predictions"
+                        element={<PredictionResults />}
                     />
                     <Route path="/profile" element={<Profile />} />
                     <Route path="/login" element={<Login />} />

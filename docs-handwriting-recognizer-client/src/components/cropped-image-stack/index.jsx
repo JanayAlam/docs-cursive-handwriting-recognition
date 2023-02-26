@@ -3,18 +3,20 @@ import DoneAllIcon from '@mui/icons-material/DoneAll';
 import { Container, Stack, Typography } from '@mui/material';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import dataURLtoFile from '../../assets/utils';
+import { useNavigate } from 'react-router-dom';
 import {
     removeCroppedPhoto,
     selectCroppedPhotos
 } from '../../store/reducers/photos-slice';
 import { pushNotification } from '../../store/reducers/ui-slice';
+import dataURLtoFile from '../../utils/utilsFunctions';
 import ButtonComponent from '../ui/button';
 import styles from './cropped-image-stack.module.css';
 
 const CroppedImageStack = () => {
     const dispatch = useDispatch();
     const croppedPhotos = useSelector(selectCroppedPhotos);
+    const navigate = useNavigate();
 
     const removeCroppedImage = (id) => {
         dispatch(removeCroppedPhoto(id));
@@ -35,6 +37,7 @@ const CroppedImageStack = () => {
 
         const res = await axios.post('http://localhost:8080/api/predict', data);
         console.log(res.data);
+        navigate('/predictions');
     };
 
     return (
