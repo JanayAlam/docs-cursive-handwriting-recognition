@@ -6,10 +6,18 @@ from docs_handwriting_recognizer.db import get_db
 
 seed = Blueprint(name='seed', url_prefix='/api/seed', import_name='seed')
 
+def get_float_price(x):
+    if str(x) == 'Unavailable':
+        return 0
+    else:
+        return float(str(x).replace(',', ''))
+
 def get_all_medicines():
     df = pd.read_csv('./datasets/medicine_dataset.csv')
     df.drop(['Unnamed: 0'], axis=1, inplace=True)
-   
+    
+    df['price'] = df['price'].apply(lambda x: get_float_price(x))
+
     medicines = df.to_numpy()
     r_arr = []
     for medicine in medicines:
