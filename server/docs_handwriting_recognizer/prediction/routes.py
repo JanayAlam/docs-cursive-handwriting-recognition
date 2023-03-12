@@ -19,9 +19,7 @@ def get_payload(data):
     }
 
 
-def get_alternate_brands(medicine):
-    db_medicines = get_db().medicines
-
+def get_alternate_brands(db_medicines, medicine):
     generic_name = medicine['generic']
     alternate_medicines = db_medicines.find({'generic': generic_name})
 
@@ -61,6 +59,6 @@ def prediction():
         {
             'id': photo['id'],
             'label': label,
-            'alternate_brands': get_alternate_brands(medicine) if medicine else []
+            'alternate_brands': get_alternate_brands(db_medicines, medicine) if medicine else []
         } for photo in photos
     ]), 200
