@@ -5,7 +5,7 @@ import {
     faPrescriptionBottle,
     faPrescriptionBottleMedical,
     faSyringe,
-    faTablets
+    faTablets,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -15,7 +15,7 @@ import {
     TableCell,
     TableContainer,
     TableHead,
-    TableRow
+    TableRow,
 } from '@mui/material';
 import PropTypes from 'prop-types';
 
@@ -40,42 +40,44 @@ const getIcon = (category) => {
 
 const AlternativeMedicineTable = ({ medicines }) => {
     return (
-        <>
-            <TableContainer>
-                <Table aria-label="simple table">
-                    <TableHead>
-                        <TableRow>
-                            <TableCell align="center" width="1%"></TableCell>
-                            <TableCell align="left" width="9%">Category</TableCell>
-                            <TableCell align="left"  width="25%">Medicine Name</TableCell>
-                            <TableCell align="left" width="15%">Volume</TableCell>
-                            <TableCell align="left" width="30%">Brand Name</TableCell>
-                            <TableCell align="left" width="10%">Price</TableCell>
+        <TableContainer>
+            <Table aria-label="simple table">
+                <TableHead>
+                    <TableRow>
+                        <TableCell align="center" width="1%"></TableCell>
+                        <TableCell align="left" width="9%">
+                            Category
+                        </TableCell>
+                        <TableCell align="left" width="25%">
+                            Medicine Name
+                        </TableCell>
+                        <TableCell align="left" width="15%">
+                            Volume
+                        </TableCell>
+                        <TableCell align="left" width="30%">
+                            Brand Name
+                        </TableCell>
+                        <TableCell align="left" width="10%">
+                            Price
+                        </TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    {medicines.map((row) => (
+                        <TableRow key={row.name}>
+                            <TableCell component="th" scope="row">
+                                {getIcon(row.category)}
+                            </TableCell>
+                            <TableCell>{row.category}</TableCell>
+                            <TableCell align="left">{row.name}</TableCell>
+                            <TableCell align="left">{row.strength}</TableCell>
+                            <TableCell align="left">{row.company}</TableCell>
+                            <TableCell align="left">{row.price} BDT</TableCell>
                         </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {medicines.map((row) => (
-                            <TableRow key={row.name}>
-                                <TableCell component="th" scope="row">
-                                    {getIcon(row.category)}
-                                </TableCell>
-                                <TableCell>{row.category}</TableCell>
-                                <TableCell align="left">
-                                    {row.medicineName}
-                                </TableCell>
-                                <TableCell align="left">{row.volume}</TableCell>
-                                <TableCell align="left">
-                                    {row.brandName}
-                                </TableCell>
-                                <TableCell align="left">
-                                    {row.price} BDT
-                                </TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-        </>
+                    ))}
+                </TableBody>
+            </Table>
+        </TableContainer>
     );
 };
 

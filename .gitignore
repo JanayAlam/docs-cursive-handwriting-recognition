@@ -16,6 +16,8 @@
 
 /server/datasets/*
 
+/model/data/*
+
 # AWS User-specific
 .idea/**/aws.xml
 

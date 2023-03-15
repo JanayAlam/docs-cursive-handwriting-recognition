@@ -1,26 +1,63 @@
 import { Button, Container, Grid } from '@mui/material';
+import axios from 'axios';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import BasePhotoHolder from '../../components/base-photo-holder';
 import CroppedImageStack from '../../components/cropped-image-stack';
 import ErrorComponent from '../../components/error';
-import { selectBasePhoto } from '../../store/reducers/photos-slice';
+import ResultHolder from '../../components/result-holder';
+import {
+    selectBasePhoto,
+    selectCroppedPhotos,
+} from '../../store/reducers/photos-slice';
+import dataURLtoFile from '../../utils/utilsFunctions';
 
 const ImageContainer = () => {
     const basePhoto = useSelector(selectBasePhoto);
+    const [results, setResults] = useState(null);
+    const croppedPhotos = useSelector(selectCroppedPhotos);
+
+    const onSubmitHandler = async () => {
+        const data = new FormData();
+
+        for (let i = 0; i < croppedPhotos.length; i++) {
+            data.append(
+                `file-${i + 1}`,
+                dataURLtoFile(croppedPhotos[i].photo, croppedPhotos[i].id)
+            );
+        }
+
+        const res = await axios.post('http://localhost:8080/api/predict', data);
+        console.log(res.data);
+        setResults(res.data);
+        // dispatch(updateResults(res.data));
+        // navigate('/predictions');
+    };
 
     return (
         <>
             {basePhoto ? (
                 <Container maxWidth="xl">
-                    <Grid container sx={{ marginTop: '1rem' }}>
-                        <Grid item xl={8} md={8} sm={12} xs={12}>
-                            <BasePhotoHolder basePhoto={basePhoto} />
+                    {results ? (
+                        results.map((item) => (
+                            // <p>{item.label}</p>
+                            <>
+                                <ResultHolder item={item} />
+                            </>
+                        ))
+                    ) : (
+                        <Grid container sx={{ marginTop: '1rem' }}>
+                            <Grid item xl={8} md={8} sm={12} xs={12}>
+                                <BasePhotoHolder basePhoto={basePhoto} />
+                            </Grid>
+                            <Grid item xl={4} md={4} sm={12} xs={12}>
+                                <CroppedImageStack
+                                    onSubmitHandler={onSubmitHandler}
+                                />
+                            </Grid>
                         </Grid>
-                        <Grid item xl={4} md={4} sm={12} xs={12}>
-                            <CroppedImageStack />
-                        </Grid>
-                    </Grid>
+                    )}
                 </Container>
             ) : (
                 <ErrorComponent statusCode={400}>
