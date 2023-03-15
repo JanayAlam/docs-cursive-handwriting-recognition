@@ -13,9 +13,9 @@ const ResultHolder = ({ item }) => {
                         ID: {item.id}
                     </Typography>
                 </Box>
-                <Box sx={{ marginTop: 1 }}>
+                {/* <Box sx={{ marginTop: 1 }}>
                     <img src={item.photo} width={550} />
-                </Box>
+                </Box> */}
                 <Typography variant="h5">
                     {item.label}
                     <IconButton
@@ -28,6 +28,8 @@ const ResultHolder = ({ item }) => {
                 </Typography>
 
                 <Box sx={{ marginTop: 1 }}>
+                    <Typography variant="p">{medicine.category}</Typography>
+                    <br />
                     <Typography variant="p">{medicine.company}</Typography>
                     <br />
                     <Typography variant="p" mr={2}>
@@ -43,7 +45,9 @@ const ResultHolder = ({ item }) => {
                     </Typography>
                 </Box>
             </div>
-            {item.alternative_brands.length >= 0 ? (
+            {item.alternative_brands.length == 0 ? (
+                <p style={{ textAlign: 'center', fontSize: '1.2rem', marginTop: '1rem', color: 'crimson' }}>No alternative brand available</p>
+            ) : (
                 <div>
                     <Typography variant="h6" sx={{ textAlign: 'center' }}>
                         Alternative Brand's Medicines
@@ -53,11 +57,7 @@ const ResultHolder = ({ item }) => {
                         medicines={item.alternative_brands}
                     />
                 </div>
-            ) : (
-                <p>There is no suggestion available</p>
             )}
-
-            {/* <Divider sx={{ marginTop: 2, marginBottom: 2 }} /> */}
         </div>
     );
 };

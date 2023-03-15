@@ -8,8 +8,7 @@ import CroppedImageStack from '../../components/cropped-image-stack';
 import ErrorComponent from '../../components/error';
 import ResultHolder from '../../components/result-holder';
 import {
-    selectBasePhoto,
-    selectCroppedPhotos,
+    selectBasePhoto, selectCroppedPhotos
 } from '../../store/reducers/photos-slice';
 import dataURLtoFile from '../../utils/utilsFunctions';
 
@@ -17,6 +16,7 @@ const ImageContainer = () => {
     const basePhoto = useSelector(selectBasePhoto);
     const [results, setResults] = useState(null);
     const croppedPhotos = useSelector(selectCroppedPhotos);
+
 
     const onSubmitHandler = async () => {
         const data = new FormData();
@@ -29,10 +29,7 @@ const ImageContainer = () => {
         }
 
         const res = await axios.post('http://localhost:8080/api/predict', data);
-        console.log(res.data);
         setResults(res.data);
-        // dispatch(updateResults(res.data));
-        // navigate('/predictions');
     };
 
     return (
@@ -41,7 +38,6 @@ const ImageContainer = () => {
                 <Container maxWidth="xl">
                     {results ? (
                         results.map((item) => (
-                            // <p>{item.label}</p>
                             <>
                                 <ResultHolder item={item} />
                             </>

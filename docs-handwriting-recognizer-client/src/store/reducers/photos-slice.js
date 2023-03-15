@@ -57,4 +57,8 @@ export const selectCroppedPhotos = (state) => {
     return photos;
 };
 
+export const selectCroppedPhotoById = (state, id) => {
+    return state.photos.croppedPhotos[id];
+}
+
 export default photosSlice.reducer;

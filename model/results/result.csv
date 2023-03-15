@@ -1,0 +1,112 @@
+,actual_class,predicted_class,probability
+0,Tab. Afenac 50mg,Tab. Nitrin SR 2.6mg,100.0
+1,Tab. Afenac 50mg,Tab. Finix 20mg,100.0
+2,Tab. Afenac 50mg,Tab. Afenac 50mg,100.0
+3,Tab. Afenac 50mg,Tab. Afenac 50mg,100.0
+4,Tab. Afenac 50mg,Tab. Finix 20mg,100.0
+5,Tab. Afenac 50mg,Tab. Afenac 50mg,100.0
+6,Tab. Calcin D,Tab. Calcin D,100.0
+7,Tab. Calcin D,Tab. Calcin D,100.0
+8,Tab. Calcin D,Tab. Calcin D,100.0
+9,Tab. Calcin D,Tab. Calcin D,100.0
+10,Tab. Calcin D,Tab. Calcin D,100.0
+11,Tab. Calcin D,Tab. Calcin D,100.0
+12,Tab. Finix 20mg,Tab. Finix 20mg,100.0
+13,Tab. Finix 20mg,Tab. Fixal 120mg,100.0
+14,Tab. Finix 20mg,Tab. Finix 20mg,100.0
+15,Tab. Finix 20mg,Tab. Finix 20mg,100.0
+16,Tab. Finix 20mg,Tab. Riz 10mg,100.0
+17,Tab. Finix 20mg,Tab. Finix 20mg,100.0
+18,Tab. Fixal 120mg,Tab. Fixal 120mg,100.0
+19,Tab. Fixal 120mg,Tab. Fixal 120mg,100.0
+20,Tab. Fixal 120mg,Tab. Fixal 120mg,100.0
+21,Tab. Fixal 120mg,Tab. Fixal 120mg,100.0
+22,Tab. Napa Extend 665mg,Tab. Napa Extend 665mg,100.0
+23,Tab. Napa Extend 665mg,Tab. Napa Extend 665mg,100.0
+24,Tab. Napa Extend 665mg,Tab. Napa Extend 665mg,100.0
+25,Tab. Napa Extend 665mg,Tab. Napa Extend 665mg,100.0
+26,Tab. Napa Extend 665mg,Tab. Napa Extend 665mg,100.0
+27,Tab. Napa Extend 665mg,Tab. Napa Extend 665mg,100.0
+28,Tab. Napa Extend 665mg,Tab. Napa Extend 665mg,100.0
+29,Tab. Napa Extend 665mg,Tab. Napa Extend 665mg,100.0
+30,Tab. Napa Extend 665mg,Tab. Napa Extend 665mg,100.0
+31,Tab. Naprosyn 500mg,Tab. Naprosyn 500mg,100.0
+32,Tab. Naprosyn 500mg,Tab. Naprosyn 500mg,100.0
+33,Tab. Naprosyn 500mg,Tab. Naprosyn 500mg,100.0
+34,Tab. Naprosyn 500mg,Tab. Naprosyn 500mg,100.0
+35,Tab. Naprosyn 500mg,Tab. Naprosyn 500mg,100.0
+36,Tab. Naprosyn 500mg,Tab. Naprosyn 500mg,100.0
+37,Tab. Naprosyn 500mg,Tab. Naprosyn 500mg,100.0
+38,Tab. Naprosyn 500mg,Tab. Naprosyn 500mg,100.0
+39,Tab. Naprosyn 500mg,Tab. Naprosyn 500mg,100.0
+40,Tab. Napsod 550mg,Tab. Napsod 550mg,100.0
+41,Tab. Napsod 550mg,Tab. Napsod 550mg,100.0
+42,Tab. Napsod 550mg,Tab. Napsod 550mg,100.0
+43,Tab. Napsod 550mg,Tab. Napsod 550mg,100.0
+44,Tab. Napsod 550mg,Tab. Napsod 550mg,100.0
+45,Tab. Napsod 550mg,Tab. Napsod 550mg,100.0
+46,Tab. Napsod 550mg,Tab. Napsod 550mg,100.0
+47,Tab. Napsod 550mg,Tab. Napsod 550mg,100.0
+48,Tab. Napsod 550mg,Tab. Napsod 550mg,100.0
+49,Tab. Nitrin SR 2.6mg,Tab. Nitrin SR 2.6mg,100.0
+50,Tab. Nitrin SR 2.6mg,Tab. Nitrin SR 2.6mg,100.0
+51,Tab. Nitrin SR 2.6mg,Tab. Nitrin SR 2.6mg,100.0
+52,Tab. Nitrin SR 2.6mg,Tab. Nitrin SR 2.6mg,100.0
+53,Tab. Nitrin SR 2.6mg,Tab. Nitrin SR 2.6mg,100.0
+54,Tab. Nitrin SR 2.6mg,Tab. Nitrin SR 2.6mg,100.0
+55,Tab. Nitrin SR 2.6mg,Tab. Nitrin SR 2.6mg,100.0
+56,Tab. Nitrin SR 2.6mg,Tab. Nitrin SR 2.6mg,100.0
+57,Tab. Osartil 100mg,Tab. Osartil 100mg,100.0
+58,Tab. Osartil 100mg,Tab. Osartil 100mg,100.0
+59,Tab. Osartil 100mg,Tab. Osartil 100mg,100.0
+60,Tab. Osartil 100mg,Tab. Osartil 100mg,100.0
+61,Tab. Osartil 100mg,Tab. Osartil 100mg,100.0
+62,Tab. Osartil 100mg,Tab. Osartil 100mg,100.0
+63,Tab. Ovocal-DX,Tab. Ovocal-DX,100.0
+64,Tab. Ovocal-DX,Tab. Ovocal-DX,100.0
+65,Tab. Ovocal-DX,Tab. Ovocal-DX,100.0
+66,Tab. Ovocal-DX,Tab. Ovocal-DX,100.0
+67,Tab. Ovocal-DX,Tab. Ovocal-DX,100.0
+68,Tab. Ovocal-DX,Tab. Ovocal-DX,100.0
+69,Tab. Ramoril 5mg,Tab. Ramoril 5mg,100.0
+70,Tab. Ramoril 5mg,Tab. Ramoril 5mg,100.0
+71,Tab. Ramoril 5mg,Tab. Ramoril 5mg,100.0
+72,Tab. Ramoril 5mg,Tab. Ramoril 5mg,100.0
+73,Tab. Ramoril 5mg,Tab. Ramoril 5mg,100.0
+74,Tab. Ramoril 5mg,Tab. Ramoril 5mg,100.0
+75,Tab. Ramoril 5mg,Tab. Ramoril 5mg,100.0
+76,Tab. Ramoril 5mg,Tab. Ramoril 5mg,100.0
+77,Tab. Resva 5mg,Tab. Resva 5mg,100.0
+78,Tab. Resva 5mg,Tab. Resva 5mg,100.0
+79,Tab. Resva 5mg,Tab. Resva 5mg,100.0
+80,Tab. Resva 5mg,Tab. Ramoril 5mg,90.99
+81,Tab. Resva 5mg,Tab. Resva 5mg,100.0
+82,Tab. Resva 5mg,Tab. Resva 5mg,85.98
+83,Tab. Resva 5mg,Tab. Resva 5mg,100.0
+84,Tab. Rivotril 0.5mg,Tab. Osartil 100mg,100.0
+85,Tab. Rivotril 0.5mg,Tab. Rivotril 0.5mg,100.0
+86,Tab. Rivotril 0.5mg,Tab. Rivotril 0.5mg,100.0
+87,Tab. Rivotril 0.5mg,Tab. Rivotril 0.5mg,100.0
+88,Tab. Rivotril 0.5mg,Tab. Rivotril 0.5mg,100.0
+89,Tab. Rivotril 0.5mg,Tab. Rivotril 0.5mg,100.0
+90,Tab. Rivotril 0.5mg,Tab. Rivotril 0.5mg,100.0
+91,Tab. Rivotril 0.5mg,Tab. Rivotril 0.5mg,100.0
+92,Tab. Rivotril 0.5mg,Tab. Rivotril 0.5mg,100.0
+93,Tab. Riz 10mg,Tab. Riz 10mg,100.0
+94,Tab. Riz 10mg,Tab. Riz 10mg,100.0
+95,Tab. Riz 10mg,Tab. Riz 10mg,100.0
+96,Tab. Riz 10mg,Tab. Riz 10mg,100.0
+97,Tab. Riz 10mg,Tab. Riz 10mg,100.0
+98,Tab. Riz 10mg,Tab. Riz 10mg,100.0
+99,Tab. Riz 10mg,Tab. Riz 10mg,100.0
+100,Tab. Riz 10mg,Tab. Riz 10mg,100.0
+101,Tab. Riz 10mg,Tab. Riz 10mg,100.0
+102,Tab. Riz 10mg,Tab. Riz 10mg,100.0
+103,Tab. V-Plex,Tab. V-Plex,100.0
+104,Tab. V-Plex,Tab. V-Plex,100.0
+105,Tab. V-Plex,Tab. V-Plex,100.0
+106,Tab. V-Plex,Tab. V-Plex,100.0
+107,Tab. V-Plex,Tab. V-Plex,100.0
+108,Tab. V-Plex,Tab. V-Plex,100.0
+109,Tab. V-Plex,Tab. V-Plex,100.0
+110,Tab. V-Plex,Tab. V-Plex,100.0
