@@ -19,6 +19,10 @@
 /model/data/*
 /model/figures/*
 
+/server/data/*
+
+/report/*
+
 # AWS User-specific
 .idea/**/aws.xml
 
