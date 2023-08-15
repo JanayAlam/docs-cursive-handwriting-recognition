@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&family=Playfair+Display:ital,wght@0,500;0,700;1,600&family=Poppins:wght@200&family=Roboto:wght@300;400;500&display=swap');
+
+
+:root{
+    --primaryColor: hsl(14, 90%, 53%);
+    --primaryColorLight: hsl(14, 96%, 91%);
+    --bgColor: hsl(0, 0%, 100%);
+    --formColor: hsl(20, 42%, 87%);
+    --whiteColor: hsl(0, 0%, 100%);
+    --blackColor: hsl(0, 0%,18%);
+    --greyText: hsl(0, 0%,51%);
+    --inputColor: hsl(0,330, 12%, 97%);
+    --cardColor: hsl(300, 3%, 94%);
+
+    /*Font Typography */
+    --biggestFontSize: 2.5rem;
+    --h1FontSize: 2rem;
+    --h2FontSize: 1.25rem;
+    --h3FontSize: 1rem;
+    --normalFontSize: 0.938rem;
+    --smallFontSize: 0.813rem;
+    --smallestFontSize: 0.75rem;
+    --borderRadius: 3rem;
+
+}
+.Home{
+    position: relative;
+    height: 95vh;
+    width: 100%;
+    top: 0;
+
+    .sectionText{
+        position: absolute;
+        height: 100%;
+        top: 30%;
+        bottom: 50%;
+        color: var(--blackColor);
+        padding: 0 1.3rem;
+
+        h1{
+            font-size: var(--biggestFontSize);
+            font-weight: 900;
+
+        }
+        p{
+            padding: 1rem 0;
+            font-size: var(--normalFontSize);
+            font-weight: 500;
+
+        }
+        .btn{
+            gap: .5rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            font-size: var(--h3FontSize);
+
+
+        }
+
+    }
+
+}
+
+@media screen and (min-width: 480px){
+    .Home{
+        .sectionText{
+            padding: 0 2rem;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+
+            h1{
+                font-size: var(--biggestFontSize);
+                font-weight: 900;
+            }
+            p{
+                padding: 1rem 0;
+                font-size: var(--h2FontSize);
+                max-width: 70%;
+                margin: auto;
+            }
+            .btn{
+                font-size: var(--h3FontSize);
+                margin: auto;
+            }
+        }
+
+    }
+
+}
+
+@media screen and (min-width: 769px){
+    .Home{
+        .sectionText{
+            width: 100%;
+            h1{
+                font-size: 4rem;
+                font-weight: 900;
+                max-width: 70%;
+                margin: auto;
+            }
+            p{
+                padding: 1rem 0;
+                font-size: var(--h2FontSize);
+                max-width: 70%;
+                margin: auto;
+            }
+            .btn{
+                gap: .5rem;
+                padding-right: 2rem;
+                padding-left: 2rem;
+                font-size: var(--h3FontSize);
+                margin: auto;
+            }
+
+        }
+    }
+
+}
+
+
+@media screen and (min-width: 1040px){
+    .Home{
+        position: relative;
+
+        .sectionText{
+            width: 100%;
+            h1{
+                font-size: 4.5rem;
+                font-weight: 900;
+                max-width: 70%;
+                margin: auto;
+            }
+        
+         
+        }
+
+
+    }
+}
