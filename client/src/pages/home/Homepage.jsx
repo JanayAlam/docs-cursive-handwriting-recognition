@@ -1,10 +1,12 @@
-import { Container } from '@mui/material';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Dropzone from '../../components/ui/dropzone';
-
-import { useDispatch } from 'react-redux';
 import { addBasePhoto } from '../../store/reducers/photos-slice';
 import { pushNotification } from '../../store/reducers/ui-slice';
+import styles from './homepage.module.css';
 
 const Homepage = () => {
     const navigate = useNavigate();
@@ -39,11 +41,29 @@ const Homepage = () => {
     };
 
     return (
-        <Container maxWidth="xl">
-            <div style={{ marginTop: '1rem' }}>
-                <Dropzone handleSelect={handleImageSelect} />
-            </div>
-        </Container>
+        <Box className={styles.homepageRoot}>
+            <Container maxWidth="xl">
+                <Box className={styles.homepageInner}>
+                    <Typography
+                        variant="h2"
+                        component="h2"
+                        className={styles.header}
+                        sx={{ fontWeight: 'bold' }}
+                    >
+                        Trust Our Experience
+                    </Typography>
+                    <Typography
+                        className={styles.caption}
+                        sx={{ fontSize: '1.2rem' }}
+                    >
+                        Get started by uploading prescriptions
+                    </Typography>
+                    <Box sx={{ mt: '1rem' }}>
+                        <Dropzone handleSelect={handleImageSelect} />
+                    </Box>
+                </Box>
+            </Container>
+        </Box>
     );
 };
 

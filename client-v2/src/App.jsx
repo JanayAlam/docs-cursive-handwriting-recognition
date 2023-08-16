@@ -1,19 +1,14 @@
-import React from 'react'
-import Navbar from './Components/Navbar/Navbar'
-import Home from './Components/Home/Home'
-
-
-
+import React from 'react';
+import Home from './Components/Home/Home';
+import Navbar from './Components/Navbar/Navbar';
 
 const App = () => {
-  return (
-    <div>
-      <Navbar/>
-      <Home/>
-   
+    return (
+        <div>
+            <Navbar />
+            <Home />
+        </div>
+    );
+};
 
-    </div>
-  )
-}
-
-export default App
+export default App;
