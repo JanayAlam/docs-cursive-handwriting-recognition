@@ -11,6 +11,7 @@
 /model/data/*
 /model/figures/*
 /model/training_results/*
+/model/models/*
 
 /server/data/*
 
