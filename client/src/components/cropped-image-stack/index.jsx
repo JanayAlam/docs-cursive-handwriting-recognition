@@ -1,26 +1,18 @@
 import DeleteIcon from '@mui/icons-material/Delete';
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 import { Container, Stack, Typography } from '@mui/material';
-import axios from 'axios';
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import {
     removeCroppedPhoto,
     selectCroppedPhotos,
 } from '../../store/reducers/photos-slice';
 import { pushNotification } from '../../store/reducers/ui-slice';
-import dataURLtoFile from '../../utils/utilsFunctions';
 import ButtonComponent from '../ui/button';
 import styles from './cropped-image-stack.module.css';
 
-const CroppedImageStack = ({ onSubmitHandler }) => {
+const CroppedImageStack = ({ loading, onSubmitHandler }) => {
     const dispatch = useDispatch();
     const croppedPhotos = useSelector(selectCroppedPhotos);
-    const navigate = useNavigate();
-
-    // ####
-    const [results, setResults] = useState([]);
 
     const removeCroppedImage = (id) => {
         dispatch(removeCroppedPhoto(id));
@@ -32,38 +24,37 @@ const CroppedImageStack = ({ onSubmitHandler }) => {
         );
     };
 
-    // const onSubmitHandler = async () => {
-    //     const data = new FormData();
-
-    //     for (let i = 0; i < croppedPhotos.length; i++) {
-    //         data.append(
-    //             `file-${i + 1}`,
-    //             dataURLtoFile(croppedPhotos[i].photo, croppedPhotos[i].id)
-    //         );
-    //     }
-
-    //     const res = await axios.post('http://localhost:8080/api/predict', data);
-    //     console.log(res.data);
-    //     setResults(res.data);
-    //     // dispatch(updateResults(res.data));
-    //     // navigate('/predictions');
-    // };
-
     return (
         <Container maxWidth="xl">
             <div className={styles.buttonContainer}>
-                <ButtonComponent
-                    category="primary"
-                    onClickHandler={onSubmitHandler}
-                    size="small"
-                    styles={{
-                        width: '100%',
-                    }}
-                    variant="contained"
-                    disabled={croppedPhotos.length === 0}
-                >
-                    <DoneAllIcon fontSize="small" className="mr-05" /> Submit
-                </ButtonComponent>
+                {loading ? (
+                    <ButtonComponent
+                        category="primary"
+                        size="small"
+                        styles={{
+                            width: '100%',
+                        }}
+                        variant="contained"
+                        disabled
+                        onClickHandler={() => {}}
+                    >
+                        Loading...
+                    </ButtonComponent>
+                ) : (
+                    <ButtonComponent
+                        category="primary"
+                        onClickHandler={onSubmitHandler}
+                        size="small"
+                        styles={{
+                            width: '100%',
+                        }}
+                        variant="contained"
+                        disabled={croppedPhotos.length === 0}
+                    >
+                        <DoneAllIcon fontSize="small" className="mr-05" />{' '}
+                        Submit
+                    </ButtonComponent>
+                )}
             </div>
             <Stack>
                 {croppedPhotos.length > 0 ? (

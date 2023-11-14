@@ -16,9 +16,11 @@ import dataURLtoFile from '../../utils/utilsFunctions';
 const ImageContainer = () => {
     const basePhoto = useSelector(selectBasePhoto);
     const [results, setResults] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
     const croppedPhotos = useSelector(selectCroppedPhotos);
 
     const onSubmitHandler = async () => {
+        setIsLoading(true);
         const data = new FormData();
 
         for (let i = 0; i < croppedPhotos.length; i++) {
@@ -29,8 +31,8 @@ const ImageContainer = () => {
         }
 
         const res = await axios.post('http://localhost:8080/api/predict', data);
-        console.log(res.data);
         setResults(res.data);
+        setIsLoading(false);
     };
 
     return (
@@ -51,6 +53,7 @@ const ImageContainer = () => {
                             <Grid item xl={4} md={4} sm={12} xs={12}>
                                 <CroppedImageStack
                                     onSubmitHandler={onSubmitHandler}
+                                    loading={isLoading}
                                 />
                             </Grid>
                         </Grid>

@@ -1,23 +1,22 @@
 import cv2
 import numpy as np
 import tensorflow as tf
+from docs_handwriting_recognizer.db import get_db
 from flask import Blueprint, jsonify, request
 from PIL import Image
 from scipy.stats import mode
 from skimage.transform import hough_line, hough_line_peaks, rotate
-from tensorflow.keras import optimizers
-
-from docs_handwriting_recognizer.db import get_db
 
 predict = Blueprint(
     name='predict', url_prefix='/api/predict', import_name='predict')
 
-# Load the saved model
-model = tf.keras.models.load_model(
-    './save_models/model_fold_4.h5', compile=False)
+
+# model = tf.keras.models.load_model('./save_models/model_fold_1.h5', compile=False)
+model = tf.keras.models.load_model('./save_models/15_class.h5', compile=False)
+
 model.compile(
-    optimizer=optimizers.Adam(),
-    loss=tf.keras.losses.CategoricalCrossentropy(from_logits=False),
+    optimizer='adam',
+    loss='categorical_crossentropy',
     metrics=['accuracy']
 )
 
@@ -95,17 +94,22 @@ def preprocess(img):
 
 
 def img_predict(img):
+    # class_names = ['Cap. PG 50mg', 'Cap. Sergel 20mg', 'Tab. Afenac 50mg', 'Tab. Calcin D', 'Tab. Coralex-DX',
+    #                'Tab. Finix 20mg', 'Tab. Fixal 120mg', 'Tab. Napa Extend 665mg', 'Tab. Naprosyn 500mg',
+    #                'Tab. Napryn 500mg', 'Tab. Napsod 550mg', 'Tab. Nitrin SR 2.6mg', 'Tab. Osartil 100mg',
+    #                'Tab. Ovocal-DX', 'Tab. Povital', 'Tab. Ramoril 5mg', 'Tab. Relaxo 25mg', 'Tab. Resva 5mg',
+    #                'Tab. Rivotril 0.5mg', 'Tab. Riz 10mg', 'Tab. V-Plex'
+    #                ]
     class_names = ['Cap. PG 50mg', 'Cap. Sergel 20mg', 'Tab. Afenac 50mg', 'Tab. Calcin D', 'Tab. Coralex-DX',
                    'Tab. Finix 20mg', 'Tab. Fixal 120mg', 'Tab. Napa Extend 665mg', 'Tab. Naprosyn 500mg',
-                   'Tab. Napryn 500mg', 'Tab. Napsod 550mg', 'Tab. Nitrin SR 2.6mg', 'Tab. Osartil 100mg',
-                   'Tab. Ovocal-DX', 'Tab. Povital', 'Tab. Ramoril 5mg', 'Tab. Relaxo 25mg', 'Tab. Resva 5mg',
-                   'Tab. Rivotril 0.5mg', 'Tab. Riz 10mg', 'Tab. V-Plex'
+                   'Tab. Napryn 500mg', 'Tab. Osartil 100mg', 'Tab. Povital', 'Tab. Relaxo 25mg',
+                   'Tab. Rivotril 0.5mg', 'Tab. Riz 10mg'
                    ]
 
     # image preprocessing
     img_array = preprocess(img)
     rgb_image = cv2.cvtColor(img_array, cv2.COLOR_GRAY2RGB)
-    img_array = tf.keras.preprocessing.image.img_to_array(rgb_image)
+    img_array = tf.keras.preprocessing.image.img_to_array(rgb_image) / 255
     img_array = tf.expand_dims(img_array, 0)
 
     # prediction
@@ -142,7 +146,7 @@ def prediction():
     for r_img in requested_photos:
         photos.append({
             'id': request.files[r_img].filename,
-            'arr': np.array(Image.open(request.files[r_img]).convert("RGB").resize((256, 72))) / 255
+            'arr': np.array(Image.open(request.files[r_img]).convert("RGB").resize((256, 72)))
         })
 
     for i in range(len(photos)):

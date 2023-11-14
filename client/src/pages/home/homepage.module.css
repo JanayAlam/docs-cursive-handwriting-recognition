@@ -1,0 +1,20 @@
+.homepageRoot {
+    height: 60vh;
+    background: url(../../assets/bg-image.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.homepageInner {
+    padding-top: 2rem;
+}
+
+.header {
+    color: hsl(14, 90%, 53%);
+}
+
+.footer {
+    border-top: 1px solid rgb(243, 243, 243);
+    padding-top: 1rem;
+}

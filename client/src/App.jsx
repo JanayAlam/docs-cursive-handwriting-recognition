@@ -1,15 +1,14 @@
 import { Route, Routes } from 'react-router-dom';
-import Header from './components/ui/header';
 
-import Profile from './pages/account/Profile';
-import Login from './pages/auth/Login';
-import Register from './pages/auth/Register';
 import Homepage from './pages/home/Homepage';
 import ImageContainer from './pages/prediction/ImageContainer';
 
 import { Provider } from 'react-redux';
 import styles from './app.module.css';
 import AlertList from './components/ui/alert-list';
+import Header from './components/ui/header';
+import Contact from './pages/Contact';
+import Medicines from './pages/Medicines';
 import PredictionResults from './pages/prediction/PredictionResults';
 import store from './store';
 
@@ -28,9 +27,8 @@ function App() {
                         path="/predictions"
                         element={<PredictionResults />}
                     />
-                    <Route path="/profile" element={<Profile />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/register" element={<Register />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/medicines" element={<Medicines />} />
                 </Routes>
                 <div className={styles.alertList}>
                     <AlertList />
@@ -41,4 +39,3 @@ function App() {
 }
 
 export default App;
-
